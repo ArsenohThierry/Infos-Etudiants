@@ -1,0 +1,554 @@
+ /* ── Reset & page layout ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000f18;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body.page-flow {
+            display: block;
+            padding: 30px 20px;
+        }
+
+        /* ── Form container (Uiverse design) ── */
+        .form-container {
+            width: 100%;
+            max-width: 520px;
+            margin: 30px auto;
+            background-color: #001925;
+            padding: 36px 32px;
+            border-left: 5px solid #caf438;
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                100% calc(100% - 20px),
+                calc(100% - 20px) 100%,
+                0 100%
+            );
+        }
+
+        /* ── Typography ── */
+        .heading {
+            display: block;
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .subtitle {
+            display: block;
+            color: #d3f35f;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 28px;
+        }
+
+        /* ── Form groups ── */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .required { color: #ff4d4d; margin-left: 2px; }
+
+        /* ── Inputs ── */
+        .form-container .input,
+        .modal .input {
+            color: #87a4b6;
+            width: 100%;
+            background-color: #002733;
+            border: none;
+            outline: none;
+            padding: 10px 12px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: all 0.2s ease-in-out;
+            border-left: 1px solid transparent;
+            display: block;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        .form-container .input:focus,
+        .modal .input:focus {
+            border-left: 5px solid #caf438;
+            color: #caf438;
+        }
+
+        .form-container .input.input-error {
+            border-left: 5px solid #ff4d4d;
+        }
+
+        /* ── Help text ── */
+        .form-help {
+            color: #87a4b6;
+            font-size: 0.8rem;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* ── Error messages ── */
+        .error {
+            display: none;
+            color: #ff6b6b;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-top: 6px;
+            padding-left: 4px;
+            border-left: 3px solid #ff4d4d;
+        }
+
+        .error.show { display: block; }
+
+        .alert-error {
+            background-color: #002733;
+            border-left: 4px solid #ff4d4d;
+            color: #ff6b6b;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 12px 14px;
+            margin-bottom: 22px;
+        }
+
+        /* ── Button row ── */
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        /* Submit button */
+        .button-container .send-button {
+            flex-basis: 70%;
+            background: #caf438;
+            padding: 10px 16px;
+            color: #001925;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            /* reset <input> default styles */
+            appearance: none;
+            -webkit-appearance: none;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        .button-container .send-button:hover {
+            background: transparent;
+            border: 1px solid rgb(250, 250, 0);
+            color: #caf438;
+        }
+
+        /* Help link button */
+        .button-container .reset-button-container {
+            filter: drop-shadow(1px 1px 0px yellow);
+            flex-basis: 30%;
+            text-decoration: none;
+        }
+
+        .button-container .reset-button-container .reset-button {
+            position: relative;
+            text-align: center;
+            padding: 10px;
+            color: #caf438;
+            font-weight: bold;
+            font-size: 0.85rem;
+            background: #001925;
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                100% calc(100% - 10px),
+                calc(100% - 10px) 100%,
+                0 100%
+            );
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .button-container .reset-button-container .reset-button:hover {
+            background: #caf438;
+            color: #001925;
+        }
+
+        /* Full-width submit button */
+        .send-button-full {
+            display: block;
+            width: 100%;
+            background: #caf438;
+            padding: 11px 16px;
+            color: #001925;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.95rem;
+            font-family: inherit;
+            border: 1px solid transparent;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            margin-top: 28px;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .send-button-full:hover {
+            background: transparent;
+            border-color: yellow;
+            color: #caf438;
+        }
+
+        /* Standalone button usage */
+        .send-button {
+            display: inline-block;
+            background: #caf438;
+            padding: 10px 16px;
+            color: #001925;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            font-family: inherit;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .send-button:hover {
+            background: transparent;
+            border-color: yellow;
+            color: #caf438;
+        }
+
+        /* Full-width secondary button */
+        .reset-button-full {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            background: #002733;
+            color: #caf438;
+            font-weight: bold;
+            font-size: 0.95rem;
+            padding: 11px 16px;
+            text-align: center;
+            text-decoration: none;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+            filter: drop-shadow(1px 1px 0px yellow);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .reset-button-full:hover { background: #caf438; color: #001925; }
+
+        .back-link {
+            display: block;
+            margin-top: 16px;
+            color: #87a4b6;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .back-link:hover { color: #caf438; }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+
+        .card-top .heading { margin-bottom: 0; }
+
+        /* ── Import Excel ── */
+        .form-container.wide { max-width: 640px; }
+
+        .input-file { padding: 8px 12px; font-weight: normal; }
+
+        .report-table { margin-bottom: 24px; }
+        .report-table td:first-child { font-weight: 600; }
+
+        .status-ok { color: #caf438; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .status-skip { color: #ffad5c; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* ==========================
+           Admin dashboard (recherche)
+           ========================== */
+
+        .page-shell { width: 100%; max-width: 1200px; margin: 0 auto; }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .page-header .heading { margin-bottom: 0; }
+
+        .logout-btn {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #ff4d4d;
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 0.85rem;
+            font-family: inherit;
+            padding: 8px 14px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .logout-btn:hover { background: #ff4d4d; color: #001925; }
+
+        /* Search bar panel */
+        .search-bar {
+            max-width: none;
+            margin: 0 0 24px 0;
+            padding: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: flex-end;
+        }
+
+        .search-bar .form-group { margin-bottom: 0; }
+        .search-bar .input { width: 180px; }
+        .search-bar .send-button { height: 39px; }
+
+        /* Success banner */
+        .success-banner {
+            display: none;
+            background-color: #002733;
+            border-left: 4px solid #caf438;
+            padding: 14px 16px;
+            margin-bottom: 20px;
+            color: #caf438;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .success-banner.show { display: block; }
+
+        /* Data table */
+        .table-wrap {
+            background-color: #001925;
+            border-left: 5px solid #caf438;
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            background: #002733;
+            text-align: left;
+            padding: 12px 14px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #87a4b6;
+            white-space: nowrap;
+        }
+
+        .data-table td {
+            padding: 12px 14px;
+            border-top: 1px solid #002f40;
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        .data-table tbody tr:hover td { background: #002733; }
+
+        .badge {
+            font-family: 'Courier New', monospace;
+            background: #002733;
+            color: #caf438;
+            padding: 4px 8px;
+            font-size: 0.82rem;
+            border-left: 3px solid yellow;
+            display: inline-block;
+        }
+
+        .btn-edit {
+            background: transparent;
+            border: 1px solid #5ec9ff;
+            color: #5ec9ff;
+            font-weight: bold;
+            font-size: 0.78rem;
+            font-family: inherit;
+            padding: 6px 10px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-edit:hover { background: #5ec9ff; color: #001925; }
+
+        .empty {
+            text-align: center;
+            padding: 48px 20px;
+            color: #87a4b6;
+            font-style: italic;
+            background-color: #001925;
+            border-left: 5px solid #caf438;
+        }
+
+        /* ── Modal ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 15, 24, 0.78);
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .modal-overlay.show { display: flex; }
+
+        .modal {
+            background-color: #001925;
+            border-left: 5px solid #caf438;
+            padding: 36px 32px;
+            width: 420px;
+            max-width: 92vw;
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                100% calc(100% - 20px),
+                calc(100% - 20px) 100%,
+                0 100%
+            );
+        }
+
+        .modal .heading { font-size: 1.2rem; }
+        .modal .sub {
+            display: block;
+            color: #d3f35f;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .modal-actions .btn-cancel {
+            flex-basis: 40%;
+            background: #002733;
+            color: #caf438;
+            font-weight: bold;
+            font-size: 0.85rem;
+            font-family: inherit;
+            padding: 10px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .modal-actions .btn-cancel:hover { background: #caf438; color: #001925; }
+
+        .modal-actions .btn-save {
+            flex-basis: 60%;
+            background: #caf438;
+            color: #001925;
+            font-weight: bold;
+            font-size: 0.95rem;
+            font-family: inherit;
+            padding: 10px 16px;
+            text-align: center;
+            border: 1px solid transparent;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .modal-actions .btn-save:hover {
+            background: transparent;
+            border-color: yellow;
+            color: #caf438;
+        }
+
+        /* Prevent overflow on long strings */
+        .badge,
+        .data-table td,
+        .success-banner,
+        .alert-error {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        /* --- Responsive (phone/tablet) --- */
+        @media (max-width: 768px) {
+            body { align-items: flex-start; padding: 14px 0; }
+            body.page-flow { padding: 14px 12px; }
+
+            .form-container {
+                margin: 0 auto;
+                max-width: 100%;
+                padding: 22px 18px;
+                clip-path: none;
+            }
+
+            .heading { font-size: 1.2rem; line-height: 1.3; }
+            .subtitle { font-size: 0.92rem; margin-bottom: 18px; line-height: 1.4; }
+
+            .page-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+            .search-bar { padding: 18px; gap: 14px; }
+            .search-bar .input { width: 100%; }
+            .search-bar .form-group,
+            .search-bar .send-button { width: 100%; }
+
+            .data-table th,
+            .data-table td { padding: 10px; font-size: 0.82rem; }
+
+            .modal { padding: 22px 18px; clip-path: none; }
+
+            .button-container { flex-direction: column; gap: 8px; }
+            .button-container .send-button,
+            .button-container .reset-button-container { width: 100%; flex-basis: auto; }
+            .button-container .reset-button-container { filter: none; }
+            .reset-button-full { filter: none; }
+        }
+
+        @media (max-width: 420px) {
+            .form-container { padding: 18px 14px; border-left-width: 3px; }
+            .heading { font-size: 1.08rem; }
+            .send-button-full,
+            .button-container .send-button,
+            .reset-button-container .reset-button,
+            .modal-actions .btn-save,
+            .modal-actions .btn-cancel {
+                font-size: 0.88rem;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }

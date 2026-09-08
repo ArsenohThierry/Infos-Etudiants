@@ -1,0 +1,123 @@
+ERROR - 2026-08-23 06:58:05 --> pg_query(): Query failed: ERROR:  relation &quot;vue_etudiant_machine&quot; does not exist
+LINE 2: FROM &quot;vue_etudiant_machine&quot;
+             ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 200.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1647): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH/Models/EtudiantModel.php(36): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/RechercheEtudiant.php(30): App\Models\EtudiantModel->search()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\RechercheEtudiant->index()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/zenoh/Bureau/Infos etudiant et recolte/Infos_Etudiants/CI4/public/index.php')
+CRITICAL - 2026-08-23 06:58:05 --> CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  relation &quot;vue_etudiant_machine&quot; does not exist
+LINE 2: FROM &quot;vue_etudiant_machine&quot;
+             ^
+[Method: POST, Route: recherche]
+in SYSTEMPATH/Database/BaseConnection.php on line 863.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1647): CodeIgniter\Database\BaseConnection->query()
+ 2 APPPATH/Models/EtudiantModel.php(36): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/RechercheEtudiant.php(30): App\Models\EtudiantModel->search()
+ 4 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\RechercheEtudiant->index()
+ 5 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/zenoh/Bureau/Infos etudiant et recolte/Infos_Etudiants/CI4/public/index.php')
+CRITICAL - 2026-08-23 06:58:05 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  relation &quot;vue_etudiant_machine&quot; does not exist
+LINE 2: FROM &quot;vue_etudiant_machine&quot;
+             ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 212.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1647): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH/Models/EtudiantModel.php(36): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/RechercheEtudiant.php(30): App\Models\EtudiantModel->search()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\RechercheEtudiant->index()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/zenoh/Bureau/Infos etudiant et recolte/Infos_Etudiants/CI4/public/index.php')
+CRITICAL - 2026-08-23 06:58:05 --> [Caused by] ErrorException: pg_query(): Query failed: ERROR:  relation &quot;vue_etudiant_machine&quot; does not exist
+LINE 2: FROM &quot;vue_etudiant_machine&quot;
+             ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 200.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(200): pg_query()
+ 3 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\Postgre\Connection->execute()
+ 4 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(1647): CodeIgniter\Database\BaseConnection->query()
+ 6 APPPATH/Models/EtudiantModel.php(36): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH/Controllers/RechercheEtudiant.php(30): App\Models\EtudiantModel->search()
+ 8 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\RechercheEtudiant->index()
+ 9 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+14 SYSTEMPATH/rewrite.php(44): require_once('/home/zenoh/Bureau/Infos etudiant et recolte/Infos_Etudiants/CI4/public/index.php')
+ERROR - 2026-08-23 07:48:41 --> pg_query(): Query failed: ERROR:  insert or update on table &quot;machine&quot; violates foreign key constraint &quot;machine_type_user_fkey&quot;
+DETAIL:  Key (type_user)=(1) is not present in table &quot;type_user&quot;.
+in SYSTEMPATH/Database/Postgre/Connection.php on line 200.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2343): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH/Models/EtudiantModel.php(88): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH/Controllers/Home.php(99): App\Models\EtudiantModel->createWithMachine()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Home->ajouter()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/zenoh/Bureau/Infos etudiant et recolte/Infos_Etudiants/CI4/public/index.php')
+ERROR - 2026-08-23 07:48:41 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH/Database/Postgre/Connection.php on line 200.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2343): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH/Models/EtudiantModel.php(96): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH/Controllers/Home.php(99): App\Models\EtudiantModel->createWithMachine()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Home->ajouter()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/zenoh/Bureau/Infos etudiant et recolte/Infos_Etudiants/CI4/public/index.php')
+ERROR - 2026-08-23 07:48:41 --> pg_query(): Query failed: ERROR:  insert or update on table &quot;machine&quot; violates foreign key constraint &quot;machine_type_user_fkey&quot;
+DETAIL:  Key (type_user)=(1) is not present in table &quot;type_user&quot;.
+in SYSTEMPATH/Database/Postgre/Connection.php on line 200.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2343): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH/Models/EtudiantModel.php(88): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH/Controllers/Home.php(99): App\Models\EtudiantModel->createWithMachine()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Home->ajouter()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/zenoh/Bureau/Infos etudiant et recolte/Infos_Etudiants/CI4/public/index.php')
+ERROR - 2026-08-23 07:48:41 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH/Database/Postgre/Connection.php on line 200.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2343): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH/Models/EtudiantModel.php(96): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH/Controllers/Home.php(99): App\Models\EtudiantModel->createWithMachine()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Home->ajouter()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/zenoh/Bureau/Infos etudiant et recolte/Infos_Etudiants/CI4/public/index.php')
