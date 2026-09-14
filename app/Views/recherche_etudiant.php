@@ -64,6 +64,7 @@
             </div>
             <input type="submit" value="Rechercher" class="send-button">
         </form>
+        <a href="/accueil" class="back-link">&larr; Retour à l'accueil</a>
 
         <?php if (! empty($results)): ?>
             <div class="table-wrap">
