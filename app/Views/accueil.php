@@ -14,6 +14,7 @@
         </div>
         <span class="subtitle">Que voulez-vous faire ?</span>
 
+        <a href="/liste" class="reset-button-full">Liste des étudiants</a>
         <a href="/recherche" class="reset-button-full">Infos étudiants</a>
         <a href="/ajouter" class="reset-button-full">Ajouter un étudiant</a>
         <a href="/importer" class="reset-button-full">Importer des étudiants (Excel)</a>

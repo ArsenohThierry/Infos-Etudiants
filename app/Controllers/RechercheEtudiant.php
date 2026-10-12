@@ -63,4 +63,28 @@ class RechercheEtudiant extends BaseController
 
         return $this->redirectRel('/recherche');
     }
+
+    public function supprimer()
+    {
+        if (! session()->get('logged_in')) {
+            return $this->redirectRel('/');
+        }
+
+        $id = (int) $this->request->getPost('id_etudiant');
+
+        if ($id < 1) {
+            session()->setFlashdata('modifier_success', 'ID étudiant invalide.');
+            return $this->redirectRel('/recherche');
+        }
+
+        $model = new EtudiantModel();
+
+        if ($model->deleteMachineAndMacs($id)) {
+            session()->setFlashdata('modifier_success', "Étudiant #{$id} supprimé de machine et macs.");
+        } else {
+            session()->setFlashdata('modifier_success', "Erreur : étudiant #{$id} introuvable.");
+        }
+
+        return $this->redirectRel('/recherche');
+    }
 }

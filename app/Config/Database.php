@@ -27,8 +27,8 @@ class Database extends Config
     public array $default = [
         'DSN'        => '',
         'hostname'   => 'localhost',
-        'username'   => 'postgres',
-        'password'   => 'postgres',
+        'username'   => 'admin',
+        'password'   => 'admin',
         'database'   => 'monitoring',
         'schema'     => 'public',
         'DBDriver'   => 'Postgre',

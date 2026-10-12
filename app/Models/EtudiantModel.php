@@ -36,6 +36,55 @@ class EtudiantModel extends Model
         return $builder->get()->getResultArray();
     }
 
+    private function filterBuilder(array $criteria)
+    {
+        $builder = $this->db->table('etudiants');
+
+        $nom = trim((string) ($criteria['nom'] ?? ''));
+        if ($nom !== '') {
+            $escaped = $this->db->escapeLikeString($nom);
+            $builder->where("nom ILIKE '%$escaped%'");
+        }
+
+        $etu = trim((string) ($criteria['etu'] ?? ''));
+        if ($etu !== '') {
+            $escaped = $this->db->escapeLikeString($etu);
+            $builder->where("CAST(etu AS TEXT) LIKE '%$escaped%'");
+        }
+
+        return $builder;
+    }
+
+    public function countAll(array $criteria = []): int
+    {
+        return $this->filterBuilder($criteria)->countAllResults();
+    }
+
+    public function all(array $criteria = [], int $perPage = 50, int $page = 1): array
+    {
+        $builder = $this->filterBuilder($criteria);
+        $builder->orderBy('nom', 'ASC');
+        $builder->limit($perPage, max(0, ($page - 1) * $perPage));
+
+        return $builder->get()->getResultArray();
+    }
+
+    public function deleteMachineAndMacs(int $idEtudiant): bool
+    {
+        $this->db->transStart();
+
+        $row = $this->db->table('macs')->where('id_etudiant', $idEtudiant)->get()->getRow();
+        if (! $row) {
+            $this->db->transRollback();
+            return false;
+        }
+
+        $this->db->table('machine')->where('mac', $row->mac)->delete();
+        $this->db->table('macs')->where('id_etudiant', $idEtudiant)->delete();
+
+        return $this->db->transComplete();
+    }
+
     public function updateMachine(int $idEtudiant, string $mac, string $hostname, string $mdp): bool
     {
         $this->db->transStart();

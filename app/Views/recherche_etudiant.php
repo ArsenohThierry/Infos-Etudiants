@@ -91,7 +91,13 @@
                                 <td><?= esc($row['hostname']) ?></td>
                                 <td><span class="badge"><?= esc($row['mdp']) ?></span></td>
                                 <td><?= round(($row['quota_consomme']/1024/1024), 2) ?> MB</td>
-                                <td><button class="btn-edit" onclick="openModal(<?= $row['id_etudiant'] ?>, '<?= esc(addslashes($row['nom'])) ?>', '<?= esc($row['mac']) ?>', '<?= esc($row['hostname']) ?>', '<?= esc($row['mdp']) ?>')">Modifier</button></td>
+                                <td class="actions-cell">
+                                    <button class="btn-edit" onclick="openModal(<?= $row['id_etudiant'] ?>, '<?= esc(addslashes($row['nom'])) ?>', '<?= esc($row['mac']) ?>', '<?= esc($row['hostname']) ?>', '<?= esc($row['mdp']) ?>')">Modifier</button>
+                                    <form method="post" action="/supprimer" class="inline-form" onsubmit="return confirm('Supprimer cet étudiant de machine et macs ?');">
+                                        <input type="hidden" name="id_etudiant" value="<?= $row['id_etudiant'] ?>">
+                                        <button type="submit" class="btn-delete">Supprimer</button>
+                                    </form>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
